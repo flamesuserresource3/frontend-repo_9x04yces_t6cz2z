@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Gamepad2, Rocket, Sparkles } from 'lucide-react';
+import { Gamepad2, Rocket, Sparkles, Users } from 'lucide-react';
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -8,6 +8,7 @@ export default function Navbar() {
     { label: 'Features', href: '#features' },
     { label: 'Work', href: '#work' },
     { label: 'Contact', href: '#contact' },
+    { label: 'Members', href: '#/member', icon: <Users className="h-4 w-4" /> },
   ];
 
   return (
@@ -27,8 +28,9 @@ export default function Navbar() {
                 <a
                   key={item.href}
                   href={item.href}
-                  className="text-sm text-white/80 hover:text-white transition-colors"
+                  className="text-sm text-white/80 hover:text-white transition-colors inline-flex items-center gap-2"
                 >
+                  {item.icon}
                   {item.label}
                 </a>
               ))}
@@ -58,9 +60,10 @@ export default function Navbar() {
                   <a
                     key={item.href}
                     href={item.href}
-                    className="text-white/80 hover:text-white"
+                    className="text-white/80 hover:text-white inline-flex items-center gap-2"
                     onClick={() => setOpen(false)}
                   >
+                    {item.icon}
                     {item.label}
                   </a>
                 ))}
